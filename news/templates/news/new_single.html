@@ -13,5 +13,15 @@
                  {{ tag.title }}
             {% endfor %} <br>
     Автор: {{ new.user }} - {{ new.created }}  <hr>
+    {% for comment in comments %}
+        Пользователь - {{ comment.user }}<br>
+        Дата - {{ comment.created }}<br>
+        {{ comment.text }}<br>
+    {% endfor %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
 
 {% endblock content %}
